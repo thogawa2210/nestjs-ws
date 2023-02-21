@@ -1,6 +1,4 @@
-import { RedisIoAdapter } from './redis.adapter';
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
+import { RedisIoAdapter } from '../redis.module/redis.adapter';
 import { Injectable } from '@nestjs/common';
 import {OnGatewayConnection, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server } from 'socket.io';
@@ -14,10 +12,6 @@ import { WSHandler } from 'src/wshandler';
 })
 @Injectable()
 export class NestWsGateway implements OnGatewayConnection {
-  constructor(){
-    WSHandler.adapters.push(RedisIoAdapter);
-  }
-
   @WebSocketServer()
   server: Server;
 
